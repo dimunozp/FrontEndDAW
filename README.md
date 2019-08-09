@@ -1,1 +1,1 @@
-# FrontEndDAW
+# DAW Front-end
