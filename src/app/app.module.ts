@@ -13,6 +13,18 @@ import { EquipoComponent } from './equipo/equipo.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuscarObjetoPerdidoComponent } from './buscar-objeto-perdido/buscar-objeto-perdido.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const rutas: Routes = [
+    { path: '', component: IndexComponent },
+    { path: 'buscar-objeto-perdido', component: BuscarObjetoPerdidoComponent },
+    { path: 'contacto',component: ContactoComponent},
+    { path:'detalles',component: DetallesComponent},
+     { path:'equipo',component: EquipoComponent},
+     { path:'informacion-detallada',component: InformacionDetalladaComponent},
+     { path:'perdidos',component: PerdidosComponent},
+     {path:'registrar-objeto-perdido',component:RegistrarObjetoPerdidoComponent}
+   ];
 
 @NgModule({
   declarations: [
@@ -30,7 +42,8 @@ import { BuscarObjetoPerdidoComponent } from './buscar-objeto-perdido/buscar-obj
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(rutas)
   ],
   providers: [],
   bootstrap: [AppComponent]

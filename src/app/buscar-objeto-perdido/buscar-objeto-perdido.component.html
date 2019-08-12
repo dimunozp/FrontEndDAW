@@ -1,1 +1,76 @@
-<p>buscar-objeto-perdido works!</p>
+<div class="about-content">
+    <div class="container">
+        <div class="seccion-agregacion">
+            <div class="seccion-agregacion-top">
+                <h3>Busca lo que se te perdió: </h3>
+                <div class = "formulario-agregacion-objeto">
+                    <div class = "formulario-agregacion-objeto-grid">
+
+                        <div class="col-md-6 special-grid">
+                            <div class="form-group">
+                                  <label for="sel1">¿Qué es? :</label>
+                                  <select class="form-control" id="sel1" >
+                                    <option>Seleccione la categoría del objeto que encontraste</option>
+                                    <option>Tecnología</option>
+                                    <option>Ropa</option>
+                                        <option>Accesorios</option>
+                                  </select>
+                            </div>
+                            <div class="form-group">
+                                  <label for="sel1">¡Vamos! Dame más detalles :</label>
+                                  <select class="form-control" id="sel2" >
+                                    <option>Seleccione la subcategoría del objeto que encontraste</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                        <option>4</option>
+                                  </select>
+                            </div>
+                            <div class="form-group">
+                                  <label for="sel1">¡Entiendo! ¿Qué color tiene?:</label>
+                                  <select class="form-control" id="sel3" >
+                                    <option>Seleccione el color del objeto encontrado</option>
+                                    <option>Rojo</option>
+                                    <option>Negro</option>
+                                        <option>Azul</option>
+                                  </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="bday">¡Ya veo! ¿Cuándo lo encontraste?: </label>
+                                <input id="fechaHallazgo" name="fechaHallazgo" required="required">
+                                <span class="validity"></span>
+                              </div>
+
+                        </div>
+                        <div class="col-md-6 special-grid">
+                              <div class="form-group">
+                                <label for="appt-time">¿Aproximadamente a qué hora lo encontraste?: </label>
+                                <input id="appt-time" type="time" name="appt-time"
+                                        required>
+                                <span class="validity"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label class="Referencia">Referencia: </label>
+                                  <textarea class="form-control  input-sm" rows="3" name="descripcion" id="descripcion" placeholder="Describe el lugar en donde lo encontraste(una referencia): color de las paredes, asientos, pasillos,etc." maxlength="240"></textarea>
+                            </div>
+                            <div class="form-group">
+                                  <label class="Descripción">Descripción: </label>
+                                  <textarea class="form-control  input-sm" rows="3" name="descripcion2" placeholder="Descríbelo lo más detallado posible. Indica marcas singulares, manchas, rotos o elementos distinguidos para poder identificarlo mejor." maxlength="240"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 special-grid">
+                            <div>
+                                  <label class="Facultad">Facultad: </label>
+                              </div>
+                              <div>
+                                <div id="mapid"></div>
+                            </div>
+                            <div>
+                                <button id="agregarObjetoB" type="button"><span id="textoBoton">Buscar Objeto</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
