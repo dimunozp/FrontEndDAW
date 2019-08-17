@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,17 +15,19 @@ import { DetallesComponent } from './detalles/detalles.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuscarObjetoPerdidoComponent } from './buscar-objeto-perdido/buscar-objeto-perdido.component';
 import { Routes, RouterModule } from '@angular/router';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 
 const rutas: Routes = [
     { path: '', component: IndexComponent },
     { path: 'buscar-objeto-perdido', component: BuscarObjetoPerdidoComponent },
     { path: 'contacto',component: ContactoComponent},
     { path:'detalles',component: DetallesComponent},
-     { path:'equipo',component: EquipoComponent},
-     { path:'informacion-detallada',component: InformacionDetalladaComponent},
-     { path:'perdidos',component: PerdidosComponent},
-     {path:'registrar-objeto-perdido',component:RegistrarObjetoPerdidoComponent}
-   ];
+    { path:'equipo',component: EquipoComponent},
+    { path:'informacion-detallada',component: InformacionDetalladaComponent},
+    { path:'perdidos',component: PerdidosComponent},
+    {path:'registrar-objeto-perdido',component:RegistrarObjetoPerdidoComponent}
+];
 
 @NgModule({
   declarations: [
@@ -42,8 +45,10 @@ const rutas: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot(rutas),
+    LeafletModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
