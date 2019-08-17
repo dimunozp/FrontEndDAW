@@ -225,25 +225,10 @@ i.phone{
 }
 
 
-.top-menu {
-	/*
-	padding: 35px 0;
-	float: left;
-	*/
-}
-
-.top-menu ul li{
-	/*float:left; MODIFICADO*/
-}
-
-
 .search2{
 	float:right;
 }
 
-.top-menu ul li{
-	/*display:inline-block; MODIFICADO*/
-}
 .top-menu ul li a{
 
 	color:#fff;
@@ -301,14 +286,6 @@ i.phone{
   width: 100%;
   padding: 0;
   margin: 0;
-  }
-.rslides li {
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  display: none;
-  width: 100%;
-  left: 0;
-  top: 0;
   }
 .rslides li:first-child {
   position: relative;
@@ -1507,15 +1484,6 @@ a.b-home:hover{
 		font-weight: bold;
 	}
 
-	span.menu{
-		width:32px;
-		height:32px;
-		background:url(assets/nav.png)no-repeat;
-		display: inline-block;
-		float:left;
-		cursor: pointer;
-		margin-top: 3px;
-	}
 	.top-menu{
 		width:100%;
 		display: none;

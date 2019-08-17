@@ -66,9 +66,12 @@
                         <div class="col-md-12 special-grid">
                             <div>
                                   <label class="Facultad">Facultad: </label>
-                              </div>
-                              <div>
-                                <div id="mapid"></div>
+                            </div>
+                            <div>
+                                <div id="mapid" style="height: 300px;"
+                                    leaflet
+                                    [leafletOptions]="options">
+                                </div>
                             </div>
                             <div>
                                 <button id="agregarObjetoB" type="button"><span id="textoBoton">Agregar Objeto</span></button>
