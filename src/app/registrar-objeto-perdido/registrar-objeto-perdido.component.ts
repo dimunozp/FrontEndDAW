@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, marker, Marker } from 'leaflet';
-declare let L;
+import $ from 'jquery' ;
 //import { link } from 'fs';
 
+declare let L;
+var elementos = document.getElementsByClassName("agregarImagen");
+
 @Component({
-  selector: 'app-registrar-objeto-perdido',
-  templateUrl: './registrar-objeto-perdido.component.html',
-  styleUrls: ['./registrar-objeto-perdido.component.css']
+    selector: 'app-registrar-objeto-perdido',
+    templateUrl: './registrar-objeto-perdido.component.html',
+    styleUrls: ['./registrar-objeto-perdido.component.css']
 })
 export class RegistrarObjetoPerdidoComponent implements OnInit {
 
-    constructor() { }
+    constructor() {
+
+    }
 
     ngOnInit() {
-        const map = L.map('mapid').setView([-2.146640, -79.964472], 16);
+        const map2 = L.map('mapa').setView([-2.146640, -79.964472], 16);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        }).addTo(map);
+        }).addTo(map2);
 
         var circle = L.circle([-2.144463, -79.967838], {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);;
+        }).addTo(map2);;
         circle.bindPopup("FIEC").openPopup();
 
         var circle2 = L.circle([-2.148636, -79.967612], {
@@ -31,7 +35,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'yellow',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle2.bindPopup("CELEX").openPopup();
 
         var circle3 = L.circle([-2.147180, -79.967793], {
@@ -39,7 +43,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'brown',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle3.bindPopup("FCSH").openPopup();
 
         var circle4 = L.circle([-2.152011, -79.955884], {
@@ -47,7 +51,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'green',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle4.bindPopup("FCV").openPopup();
 
         var circle5 = L.circle([-2.146687, -79.963236], {
@@ -55,7 +59,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'blue',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle5.bindPopup("FIMCBOR").openPopup();
 
         var circle6 = L.circle([-2.146378, -79.967025], {
@@ -63,7 +67,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'purple',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle6.bindPopup("FCNM").openPopup();
 
         var circle7 = L.circle([-2.145540, -79.965359], {
@@ -71,7 +75,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'black',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle7.bindPopup("FICT").openPopup();
 
         var circle8 = L.circle([-2.145024, -79.965760], {
@@ -79,7 +83,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'silver',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle8.bindPopup("FIMCP").openPopup();
 
         var circle9 = L.circle([-2.143581, -79.962095], {
@@ -87,9 +91,21 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
             fillColor: 'pink',
             fillOpacity: 0.2,
             radius: 20
-        }).addTo(map);
+        }).addTo(map2);
         circle9.bindPopup("FADCOM").openPopup();
 
     }
+
+    mouseEnter(){
+	    $(elementos[0]).css("border","6px solid #7ebd26");
+        var elemento = document.getElementById("agregarImagen");
+	    $(elemento).css("display","inline-block");
+     }
+
+     mouseLeave(){
+        $(elementos[0]).css("border","6px solid #2874A6");
+        var elemento = document.getElementById("agregarImagen");
+        $(elemento).css("display","none");
+     }
 
 }

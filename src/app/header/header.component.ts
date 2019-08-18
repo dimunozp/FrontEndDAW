@@ -15,8 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   iniciarRecorrido(){
-    introJs().start()
-    console.log("Que hubo parce");
+    introJs().start();
   }
 
 }

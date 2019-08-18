@@ -6,7 +6,7 @@
                 <div class = "formulario-agregacion-objeto">
                     <div class = "formulario-agregacion-objeto-grid">
                         <div class= "col-md-4 col-mobile-12 special-grid">
-                            <div class= "agregarImagen">
+                            <div class= "agregarImagen" (mouseover) = "mouseEnter()" (mouseout)="mouseLeave()">
                                 <img src = "../assets/agregarFoto.png" title="Agregar Imagen">
                                 <div class = "icono-imagen">
                                       <img id = "agregarImagen" src = "../assets/imagen.png" title = "Agregar Imagen" style="display: none;">
@@ -68,7 +68,7 @@
                                   <label class="Facultad">Facultad: </label>
                             </div>
                             <div>
-                                <div id="mapid" style="height: 300px;"
+                                <div id="mapa" style="height: 300px;"
                                     leaflet
                                     [leafletOptions]="options">
                                 </div>
