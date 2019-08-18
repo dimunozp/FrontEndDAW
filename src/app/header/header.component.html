@@ -1,10 +1,10 @@
 <div class="header">
     <div class="container">
         <div class="col-md-3 logoPolyLost">
-            <div class="nav-item" data-position="bottom" data-intro="PolyLost es una página web centrada en la publicación y reclamo de objetos perdidos por personas en ESPOL." data-step="1"><a id="logoPolyLost" routerLink="/"><h1 class="insignia">Poly</h1></a></div>
+            <div class="nav-item" data-position="rigth" data-intro="PolyLost es una página web centrada en la publicación y reclamo de objetos perdidos por personas en ESPOL." data-step="1"><a id="logoPolyLost" routerLink="/"><h1 class="insignia">Poly</h1></a></div>
         </div>
         <div class="mapaNavegacion">
-            <div class="nav-item" onclick="javascript:introJs().start();" ><button class="navGuiada button"><span>Dar un paseo</span></button></div>
+            <div class="nav-item" (click)="iniciarRecorrido()" ><button class="navGuiada button"><span>Dar un paseo</span></button></div>
         </div>
         <div class="clearfix"></div>
 
@@ -25,7 +25,7 @@
 
                         <li  class = "nav-item elementoMenu" data-position = "bottom" data-intro = "Ponte en contacto con nosotros." data-ste = "5"><a class = "seleccionables nav-link enlaceMenu" routerLink="/contacto">Contactanos</a></li>
                         <li class="nav-item elementoMenu" data-position="bottom" data-intro="Conoce un poco de nuestro trabajo, nuestros objetivos y trabajos futuros que planiemos realizar." data-step="6">
-                            <a class="active enlaceMenu" href="#">Acerca de</a>
+                            <a class="active enlaceMenu">Acerca de</a>
                             <ul class="menuPrincipal submenu">
                                 <li class="elementoMenu"><a class="seleccionables enlaceMenu" routerLink="/equipo">Equipo de trabajo</a></li>
                                 <li class="elementoMenu"><a class="seleccionables enlaceMenu" routerLink="/detalles">Que hacemos </a></li>
