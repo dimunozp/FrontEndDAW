@@ -1,0 +1,33 @@
+<section id="login" class="mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 x-auto">
+                <div class="car_login">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <form #formLogin="ngForm"(ngSubmit)="onLogin()">
+                                <h1 class="font-weight-normal">
+                                    Ingreso
+                                </h1>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Correo eléctronico" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="contrasenia" name="contrasenia" class="form-control" placeholder="Contraseña" required>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-primary btn-block" >
+                                    Ingresar
+                                </button>
+                                <div class="form-group">
+                                    <a href="" routerLink="/usuario/registro" class="form-control registro-user">¿Eres nuevo?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--[(ngModel)]="user.email"
+[(ngModel)]="user.contrasenia"-->

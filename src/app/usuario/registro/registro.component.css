@@ -1,0 +1,10 @@
+.form-control.login-user{
+    border: 0px solid #fff !important;
+}
+
+section#register{
+    margin: 6% 0% 0% 0%;
+    position: relative;
+    left: 25%;
+}
+

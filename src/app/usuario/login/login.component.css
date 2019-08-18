@@ -1,0 +1,13 @@
+.form-control.registro-user{
+    border: 0px solid #fff !important;
+}
+
+section#login{
+    margin: 10% 0% 0% 0%;
+    position: relative;
+    left: 25%;
+}
+
+div.container {
+    margin-bottom: 8%;
+}
