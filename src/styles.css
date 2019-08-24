@@ -2238,7 +2238,7 @@ img.imagen:hover{
 
 .mapaNavegacion {
 	position: absolute;
-	left: 75%;
+    left: 73.5%;
 }
 
 @media screen and (max-width: 990px){
@@ -8694,5 +8694,11 @@ h2, #seccion4 h4{
           opacity: 0.0;
       }
   }
+
+div.botonesRegisto {
+    position: absolute;
+    left: 60%;
+    top: 4%;
+}
 
 
