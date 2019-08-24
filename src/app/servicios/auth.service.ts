@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
+import { UsuarioInterface } from './../models/usuario-interface';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
 
     registrarUsuario(matricula: string, nombre: string, apellido: string, telefono: string, direccion: string, correo: string, contrasenia: string) {
         const url_api = ""
-        return this.http.post(url_api, {
+        return this.http.post<UsuarioInterface>(url_api, {
             matricula: matricula,
             nombre: nombre,
             apellido: apellido,
@@ -34,7 +35,7 @@ export class AuthService {
 
     ingresoUsuario(correo:string,contrasenia:string): Observable<any>{
         const url_api = ""
-        return this.http.post(url_api,{
+        return this.http.post<UsuarioInterface>(url_api,{
             correo:correo,
             contrasenia:contrasenia
         },
@@ -45,7 +46,7 @@ export class AuthService {
         .pipe(map(data=>data));
     }
 
-    setUser(usuario):void {
+    setUser(usuario:UsuarioInterface):void {
         let usuario_string = JSON.stringify(usuario);
         localStorage.setItem("usuarioActual",usuario_string);
     }
@@ -58,10 +59,10 @@ export class AuthService {
         return localStorage.getItem("tokenAcceso");
     }
 
-    getCurrentUser(){
+    getCurrentUser():UsuarioInterface{
         let usuario_string = localStorage.getItem("usuarioActual");
         if(!isNullOrUndefined(usuario_string)){
-            let usuario = JSON.parse(usuario_string);
+            let usuario:UsuarioInterface = JSON.parse(usuario_string);
             return usuario;
         }else{
             return null;
@@ -73,7 +74,7 @@ export class AuthService {
         const url_api = "";
         localStorage.removeItem("tokenAcceso");
         localStorage.removeItem("usuarioActual");
-        return this.http.post(url_api,
+        return this.http.post<UsuarioInterface>(url_api,
             {headers: this.headers}
             )
     }

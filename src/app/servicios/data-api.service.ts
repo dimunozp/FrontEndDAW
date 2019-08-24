@@ -3,16 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs/internal/Observable'
 import { AuthService } from './auth.service';
 import {map} from 'rxjs/operators';
+import { ObjetoInterface } from './../models/objeto-interface';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DataApiService {
 
+    constructor(private http: HttpClient, private authService: AuthService) { }
+
     objetos: Observable<any>;
     objeto: Observable<any>;
-
-    constructor(private http: HttpClient, private authService: AuthService) { }
 
     headers: HttpHeaders = new HttpHeaders({
         "Content-Type": "aplication/json",
@@ -31,21 +32,21 @@ export class DataApiService {
     }
     //api que envia por parametro el url = '?[where][parametro]=loquesequiere'
 
-    agregarObjeto(objeto) {
+    agregarObjeto(objeto:ObjetoInterface) {
         //TODO: obtener token
         //TODO: not null
         let token = this.authService.getToken();
         const url_api = `?access_token=${token}`;
-        /*return this.http.post(url_api,objeto,{headers: this.headers})
+        /*return this.http.post<ObjetoInterface>(url_api,objeto,{headers: this.headers})
             .pipe(map(data=>data));*/
     }
 
-    modificarObjeto(objeto) {
+    modificarObjeto(objeto:ObjetoInterface) {
         //TODO: obtener token
         //TODO: not null
         let token = this.authService.getToken();
         const url_api = `?access_token=${token}`;
-        /*return this.http.put(url_api,objeto,{headers: this.headers})
+        /*return this.http.put<ObjetoInterface>(url_api,objeto,{headers: this.headers})
             .pipe(map(data=>data));*/
 
     }
@@ -55,7 +56,7 @@ export class DataApiService {
         //TODO: not null
         let token = this.authService.getToken();
         const url_api = `?access_token=${token}`;
-        /*return this.http.delete(url_api,{headers: this.headers})
+        /*return this.http.delete<ObjetoInterface>(url_api,{headers: this.headers})
             .pipe(map(data=>data));*/
     }
 
