@@ -54,17 +54,18 @@
                 <p class="texto parrafo2">Todos los objetos</p>
                    <div class="specials">
                     <div class="specials-grids">
-                        <div class="col-md-4 special-grid">
+                        <div class="col-md-4 special-grid "><!--Aqui va la directiva ngFor para iterar los resultados obtenidos *ngFor="let objeto of objetos" -->
                           <div class="gallery">
-                            <a href="../assets/libro.jpg"><img src="../assets/libro.jpg" title="imagen-name">
+                            <a href="../assets/libro.jpg"><img src="../assets/libro.jpg" title="imagen-name" alt="Libro Matematicas"><!--{{objeto.imagen}}-->
                                 <div class="zoom-icon">
                                       <i class="zi"></i>
                                 </div>
                             </a>
                           </div>
-                            <h4>Lirbo Matematicas</h4>
+                            <h4>Libro Matematicas</h4><!--Aqui viene interpolation string {{objeto.nombe}}-->
                             <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <a class="btn btn-1 btn-1c more" href="./informacionDetallada.html">Reclamar</a>
+                            <!--{{objeto.descripcion}}-->
+                            <a class="btn btn-1 btn-1c more" routerLink="/informacion-detallada/id">Reclamar</a><!--routerLing ="/informacionDetallada/{{objeto.id}}"-->
                         </div>
                         <div class="col-md-4 special-grid">
                               <div class="gallery">

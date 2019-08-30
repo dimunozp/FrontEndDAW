@@ -32,7 +32,7 @@ const rutas: Routes = [
     { path: 'contacto', component: ContactoComponent },
     { path: 'detalles', component: DetallesComponent },
     { path: 'equipo', component: EquipoComponent },
-    { path: 'informacion-detallada', component: InformacionDetalladaComponent },
+    { path: 'informacion-detallada/:id', component: InformacionDetalladaComponent },
     { path: 'perdidos', component: PerdidosComponent },
     { path: 'registrar-objeto-perdido', component: RegistrarObjetoPerdidoComponent },
     { path: 'usuario/registro', component: RegistroComponent },

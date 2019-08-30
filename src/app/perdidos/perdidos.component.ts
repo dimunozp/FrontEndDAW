@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataApiService } from './../servicios/data-api.service';
+import { ObjetoInterface } from './../models/objeto-interface';
 
 @Component({
     selector: 'app-perdidos',
@@ -7,6 +8,8 @@ import { DataApiService } from './../servicios/data-api.service';
     styleUrls: ['./perdidos.component.css']
 })
 export class PerdidosComponent implements OnInit {
+
+    private objetos:ObjetoInterface;
 
     //se inyecta el dataApi
 
@@ -19,6 +22,7 @@ export class PerdidosComponent implements OnInit {
     getTodosObjetos(){
         /*this.dataApi.obtenerTodosObjetos()
         .subscribe(objetos=>console.log(objetos));*/
+        //dentro de subscribe((objetos: ObjetoInterface)=>this.objetos=objetos));
 
     }
 
