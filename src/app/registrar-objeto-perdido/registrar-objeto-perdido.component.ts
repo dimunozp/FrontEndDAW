@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
+import { HttpClient, HttpHeaders, HttpParams,HttpRequest, HttpResponse } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { imagenInterface } from '../models/imagen';
 //import { link } from 'fs';
 
 declare let L;
@@ -12,9 +15,18 @@ var elementos = document.getElementsByClassName("agregarImagen");
 })
 export class RegistrarObjetoPerdidoComponent implements OnInit {
     private mapaInicializado: boolean = false;
-    constructor() {
+    fileToUpload: File = null;
+    imageUrl: string = "../assets/agregarFoto.png";
+    url_api: string = "https://api.imgbb.com/1/upload?key=dbb31a86423010cca82ddc9cacac724c";
+    api_Key = "dbb31a86423010cca82ddc9cacac724c";
+    private imagen: imagenInterface;
+
+    constructor(private http: HttpClient) {
 
     }
+
+    headers: HttpHeaders = new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded');
 
     ngOnInit() {
         if (!this.mapaInicializado) {
@@ -94,7 +106,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
                 radius: 20
             }).addTo(map2);
             circle9.bindPopup("FADCOM").openPopup();
-            this.mapaInicializado=true;
+            this.mapaInicializado = true;
         }
 
     }
@@ -111,4 +123,44 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
         $(elemento).css("display", "none");
     }
 
+    handleFileInput(file: FileList) {
+        this.fileToUpload = file.item(0);
+
+        var reader = new FileReader();
+        reader.onload = (event: any) => {
+            this.imageUrl = event.target.result;
+            let base64: string = this.imageUrl.slice(23);
+            this.enviarImgBB(base64, this.api_Key);
+        }
+        reader.readAsDataURL(this.fileToUpload);
+    }
+
+    enviarImgBB(url_base64: string, key: string) {
+        let b:FormData =new FormData();
+        b.append('key', key);
+        b.append('image',url_base64);
+        this.http.request
+
+        /*fetch(this.url_api, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: b
+        })*/
+        /*const body = new HttpParams()
+            .set('key', key)
+            .set('image', url_base64);
+        let b:FormData =new FormData();
+        b.append('key', key);
+        b.append('image',url_base64);
+        return this.http.post(this.url_api, b, { headers: this.headers/*,params: {key:key} }
+        )
+            .subscribe(
+                data => {
+                    console.log(data);
+                }
+            )
+            */
+    }
 }

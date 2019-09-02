@@ -6,12 +6,10 @@
                 <div class = "formulario-agregacion-objeto">
                     <div class = "formulario-agregacion-objeto-grid">
                         <div class= "col-md-4 col-mobile-12 special-grid">
-                            <div class= "agregarImagen" (mouseover) = "mouseEnter()" (mouseout)="mouseLeave()">
-                                <img src = "../assets/agregarFoto.png" title="Agregar Imagen">
-                                <div class = "icono-imagen">
-                                      <img id = "agregarImagen" src = "../assets/imagen.png" title = "Agregar Imagen" style="display: none;">
-                                 </div>
-                            </div>
+                                <div class= "form-row agregarImagen " (mouseover) = "mouseEnter()" (mouseout)="mouseLeave()">
+                                    <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)" class="custom-file-input" id="input-custom-file">
+                                    <img src = "{{imageUrl}}" title="Agregar Imagen">
+                                </div>
                         </div>
                         <div class="col-md-4 special-grid">
                             <div class="form-group">

@@ -1,0 +1,8 @@
+#input-custom-file{
+    position: absolute;
+    padding: 50%;
+}
+
+#input-custom-file:hover{
+    cursor: pointer;
+}
