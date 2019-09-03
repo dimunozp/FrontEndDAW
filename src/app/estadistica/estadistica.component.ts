@@ -3,6 +3,7 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label, Color, BaseChartDirective } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-estadistica',
@@ -10,15 +11,180 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./estadistica.component.css']
 })
 export class EstadisticaComponent implements OnInit{
+  
+/*
 
   //Gráfico de líneas
+  onSubmit(queryForm:NgForm):void{
+    var user = queryForm.value;
+    
+    this.httpClient.post(`http://192.168.0.24:3000/api/objetosFecha`,{
+      fecha:"2019-08-16"
+    
+  })
+    .subscribe(
+      (data:any[]) => {
+        
+        console.log(data);
+        if(data.length) {
+          data.forEach(element => {
+            this.nombre.push(element.nombre);
+            this.color.push(element.color);
+            this.descripcion.push(element.descripcion);
+            this.lugar.push(element.lugar);
+            this.fechaRegistro.push(element.fechaRO);
+            this.horaRegistro.push(element.horaRegistro);
+                        
+          });
+        }
+        
+        
+        
+
+  })
+}
+*/
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+  }
 
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Objetos Perdidos' },
+    { data: [], label: 'Objetos Perdidos' },
     
   ];
+  loadData1(){
+    
+    for(let i=1;i<10;i++){
+      
+      this.httpClient.post(`http://192.168.0.24:3000/api/objetosMes`,{
+        mes:"0"+i
+      })
+      .subscribe(
+        (data:any[]) => {
+          this.lineChartData[0].data.push(data.length);
+        })
+        this.delay(3000);
 
-  public lineChartLabels: Label[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+        
+    }
+    for(let i=9;i<12;i++){
+      
+      this.httpClient.post(`http://192.168.0.24:3000/api/objetosMes`,{
+        mes:i+""
+      })
+      .subscribe(
+        (data:any[]) => {
+          this.lineChartData[0].data.push(data.length);
+        })
+      this.delay(3000);
+    }
+
+  }
+
+  public barChartData: ChartDataSets[] = [
+    { data: [], label: 'electronico' },
+    { data: [], label: 'accesorios' },
+    { data: [], label: 'otros' }
+  ];
+
+  loadData2(){
+    var categorias=[]
+    var cantidadCategorias=[]
+    console.log("About to exe loadData2")
+    this.httpClient.get(`http://192.168.0.24:3000/api/subcategorias`)
+    .subscribe(
+      (data:any[]) => {
+        data.forEach(element => {
+          if(!categorias.includes(element.idcategoria)){
+            categorias.push(element.idcategoria);
+            console.log('agregando')
+            console.log();
+
+            cantidadCategorias.push(1);
+          }else{
+            var indice=categorias.indexOf(element.idcategoria);
+            cantidadCategorias[indice]+=1;
+          }
+          this.delay(3000);
+        
+      });
+    });
+    this.httpClient.get(`http://192.168.0.24:3000/api/categorias`)
+    .subscribe(
+      (data:any[]) => {
+        data.forEach(element => {
+             
+          var indice=categorias.indexOf(element.idcategoria);
+          if(indice>=0){
+            categorias[indice]=element.nombre;
+          }
+          this.delay(3000);
+        
+      });/*
+      for(var i=0;i<categorias.length;i++){
+        console.log("prueba")
+        this.barChartData.push({data:[cantidadCategorias[i],7,0],label:categorias[i]});      
+      };*/
+      
+      this.barChartData[0].data.push(cantidadCategorias[0]);
+      this.barChartData[0].data.push(0);
+      this.barChartData[0].data.push(7);
+      
+      this.barChartData[1].data.push(cantidadCategorias[1]);
+      
+      this.barChartData[2].data.push(cantidadCategorias[2]);
+      
+      
+    });
+      
+
+  };
+
+  public pieChartLabels: Label[] = [];
+  public pieChartData: number[] = [];
+
+  loadData3(){
+    var calificaciones=[]
+    var cantidadCalificaciones=[]
+    this.httpClient.get(`http://192.168.0.24:3000/api/calificaciones`)
+    .subscribe(
+      (data:any[]) => {
+        console.log(data);
+        data.forEach(element => {
+          
+          if(!calificaciones.includes(element.calificacion)){
+            calificaciones.push(element.calificacion);
+            console.log('agregando')
+            console.log();
+
+            cantidadCalificaciones.push(1);
+          }else{
+            var indice=calificaciones.indexOf(element.calificacion);
+            cantidadCalificaciones[indice]+=1;
+          }
+        
+        });
+
+        for(let i=0;i<calificaciones.length;i++){
+          this.pieChartLabels.push(calificaciones[i]+" estrellas");
+          this.pieChartData.push(cantidadCalificaciones[i]);
+          this.delay(3000);
+        }
+        this.delay(3000);
+        console.log(calificaciones);
+        console.log(cantidadCalificaciones);
+
+    });
+
+
+
+    
+  }
+  
+  
+
+ 
+  public lineChartLabels: Label[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     
@@ -109,15 +275,12 @@ export class EstadisticaComponent implements OnInit{
       }
     }
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = ['2019'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
-  public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
-  ];
+  
 
 
   //Gráfico pastel
@@ -137,8 +300,6 @@ export class EstadisticaComponent implements OnInit{
       },
     }
   };
-  public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
-  public pieChartData: number[] = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];
@@ -149,23 +310,15 @@ export class EstadisticaComponent implements OnInit{
   ];
   
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
 
   ngOnInit() {
+    this.loadData1();
+    this.loadData2();
+    this.loadData3();
+
   }
 
-  public randomize(): void {
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        this.lineChartData[i].data[j] = this.generateNumber(i);
-      }
-    }
-    this.chart.update();
-  }
-
-  private generateNumber(i: number) {
-    return Math.floor((Math.random() * (i < 2 ? 100 : 1000)) + 1);
-  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
@@ -176,34 +329,11 @@ export class EstadisticaComponent implements OnInit{
     console.log(event, active);
   }
 
-  public hideOne() {
-    const isHidden = this.chart.isDatasetHidden(1);
-    this.chart.hideDataset(1, !isHidden);
-  }
-
-  public pushOne() {
-    this.lineChartData.forEach((x, i) => {
-      const num = this.generateNumber(i);
-      const data: number[] = x.data as number[];
-      data.push(num);
-    });
-    this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
-  }
-
-  public changeColor() {
-    this.lineChartColors[2].borderColor = 'green';
-    this.lineChartColors[2].backgroundColor = `rgba(0, 255, 0, 0.3)`;
-  }
-
-  public changeLabel() {
-    this.lineChartLabels[2] = ['1st Line', '2nd Line'];
-    // this.chart.update();
-  }
 
 
 
 
-  //Gráfico de barras
+
 
   
 

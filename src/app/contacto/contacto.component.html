@@ -13,7 +13,8 @@
                             </div>
                             <!-- contact-form -->
                             <div class="contact-form">
-                                <form>
+                                <form #contactoForm="ngForm" (ngSubmit)="onSubmit(contactoForm)">
+                                        
                                     <div class="contact-form-row">
                                         <div class="formulario">
                                             <span>Nombre Completo:</span>
@@ -25,11 +26,11 @@
                                         </div>
                                         <div class="formulario">
                                             <span>Asunto :</span>
-                                            <input type= "text" value= "Asunto" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Asunto';}">
+                                            <input type= "text" value= "Asunto" name="asunto" [ngModel]="asunto" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Asunto';}">
                                         </div>
                                         <div class="formulario">
                                             <span>Correo:</span>
-                                            <input type="text" value="Tu correo aquí" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tu correo aquí';}">
+                                            <input type="text" value="Tu correo aquí" name="correo" [ngModel]="correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tu correo aquí';}">
                                         </div>
                                         <div class="formulario">
                                             <span>Lugar de Origen:</span>
@@ -45,9 +46,11 @@
                                     <div class="clearfix"> </div>
                                     <div class="contact-form-row2">
                                         <span>Mensaje:</span>
-                                        <textarea> </textarea>
+                                        <textarea name="mensaje" [ngModel]="mensaje"> </textarea>
                                     </div>
-                                    <input type="submit" value="Enviar">
+                                    <div>
+                                        <button type="submit" value="Enviar">Enviar</button>
+                                    </div>
                                 </form>
                             </div>
                             <!-- contact-form -->

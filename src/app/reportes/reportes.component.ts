@@ -10,9 +10,12 @@ import { HttpClient } from '@angular/common/http';
 export class ReportesComponent implements OnInit {
   
   nombre:string[] =[];
-  age:number[] = [];
-  id:number[] = [];
-  found:boolean;
+  color:string[] = [];
+  descripcion:string[] = [];
+  lugar:string[] =[];
+  fechaRegistro:string[] =[];
+  horaRegistro:string[] =[];
+
   constructor(private httpClient:HttpClient) { }
 /*
   onNameKeyUp(event:any){
@@ -62,29 +65,28 @@ export class ReportesComponent implements OnInit {
   onSubmit(queryForm:NgForm):void{
     var user = queryForm.value;
     
-    this.httpClient.post(`http://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles/`,
-    {
-       name:user.name,
-       age:21
-
-    })
+    this.httpClient.post(`http://192.168.0.24:3000/api/objetosFecha`,{
+      fecha:"2019-08-16"
+    
+  })
     .subscribe(
       (data:any[]) => {
-        /*
-        this.nombre.push(data.name);
-        this.age.push(data.age)
         
-        console.log(data.length);
+        console.log(data);
         if(data.length) {
           data.forEach(element => {
-            console.log("Entro al if")
-            console.log(element)
-            this.age.concat(element.age);
+            this.nombre.push(element.nombre);
+            this.color.push(element.color);
+            this.descripcion.push(element.descripcion);
+            this.lugar.push(element.lugar);
+            this.fechaRegistro.push(element.fechaRO);
+            this.horaRegistro.push(element.horaRegistro);
+                        
           });
-        }*/
+        }
         
-        console.log(this.nombre);
-        console.log(this.age)
+        
+        
 
   })
 }
