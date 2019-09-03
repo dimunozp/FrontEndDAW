@@ -33,7 +33,7 @@ export class AuthService {
         .pipe(map(data=>data));
     }
 
-    ingresoUsuario(correo:string,contrasenia:string): Observable<any>{
+    loginUser(correo:string,contrasenia:string): Observable<any>{
         const url_api = ""
         return this.http.post<UsuarioInterface>(url_api,{
             correo:correo,

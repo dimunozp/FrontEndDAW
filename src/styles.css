@@ -8413,9 +8413,9 @@ h2, #seccion4 h4{
     background-image: -moz-linear-gradient(#f4f4f4, #ececec);
     background-image: -o-linear-gradient(#f4f4f4, #ececec);
     background-image: linear-gradient(#f4f4f4, #ececec);
-    -webkit-background-clip: padding;
+    /*-webkit-background-clip: padding;
     -moz-background-clip: padding;
-    -o-background-clip: padding-box;
+    -o-background-clip: padding-box;*/
     /*background-clip: padding-box;*/ /* commented out due to Opera 11.10 bug */
     -webkit-border-radius: 0.2em;
     -moz-border-radius: 0.2em;
@@ -8701,4 +8701,12 @@ div.botonesRegisto {
     top: 4%;
 }
 
+/*Estadistica*/
+div.estadistica{
+  margin:7em 0em;  
+}
 
+/*Reportes*/
+div.reportes{
+  margin:7em 0em;  
+}

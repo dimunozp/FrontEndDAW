@@ -2,11 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
+// Graficos
+import { ChartsModule } from 'ng2-charts';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrarObjetoPerdidoComponent } from './registrar-objeto-perdido/registrar-objeto-perdido.component';
 import { PerdidosComponent } from './perdidos/perdidos.component';
 import { InformacionDetalladaComponent } from './informacion-detallada/informacion-detallada.component';
+import { EstadisticaComponent } from './estadistica/estadistica.component';
 import { IndexComponent } from './index/index.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,11 +25,15 @@ import { RegistroComponent } from './usuario/registro/registro.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { Page404Component } from './page404/page404.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 //servicios
 import { DataApiService } from './servicios/data-api.service';
+import { ReportesComponent } from './reportes/reportes.component';
+
+
+
 
 const rutas: Routes = [
     { path: '', component: IndexComponent },
@@ -38,7 +47,10 @@ const rutas: Routes = [
     { path: 'usuario/registro', component: RegistroComponent },
     { path: 'usuario/login', component: LoginComponent },
     { path: 'usuario/perfil', component: PerfilComponent },
+    { path: 'estadistica', component: EstadisticaComponent },
+    { path: 'reportes', component: ReportesComponent },
     { path: '**', component: Page404Component }
+
 ];
 
 @NgModule({
@@ -57,13 +69,17 @@ const rutas: Routes = [
         RegistroComponent,
         LoginComponent,
         Page404Component,
-        PerfilComponent
+        PerfilComponent,
+        EstadisticaComponent,
+        ReportesComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
         FormsModule,
         AppRoutingModule,
+        ChartsModule,
+        
         RouterModule.forRoot(rutas),
         LeafletModule.forRoot()
     ],

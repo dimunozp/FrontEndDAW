@@ -1,0 +1,61 @@
+<div class="Container estadistica">
+    
+    <h1 class="text-center">Estadisticas</h1>
+    <h2>Cantidad de objetos perdidos por mes (2019)</h2>
+    <div class="flex">
+            <div class="flex-item">
+              <div style="display: block;">
+            <canvas baseChart width="400" height="400"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        [plugins]="lineChartPlugins"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+            </div>
+        </div>
+        <div class="flex-item">
+            <table class="table table-condensed"></table>
+            
+            
+            <!--<button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>-->
+            
+        <!--Gráfico Barras-->
+        </div>
+        <h2>Cantidad de objetos perdidos por categoría (2019)</h2>
+        <div style="display: block">
+            <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+            </canvas>
+        </div>
+
+        <!--Gráfico Pasteñ-->
+        <h2>Cantidad de objetos perdidos por calificación (2019)</h2>
+        <div class="chart">
+            <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins"
+                [colors]="pieChartColors"
+                [legend]="pieChartLegend">
+            </canvas>
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+

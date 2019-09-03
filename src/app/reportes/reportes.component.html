@@ -1,0 +1,57 @@
+<div class="container reportes">
+    <div class="text-center">
+        <h1>Reportes</h1>
+    </div>
+
+    <form #queryForm="ngForm" (ngSubmit)="onSubmit(queryForm)">
+        <div class="form-group col-md-6">
+            <label class="bday" for="name">Texto: </label>
+            <input type="text" id="name" name="name" [(ngModel)]="name" >
+            <span class="validity"></span>
+        </div><!--
+        <div class="form-group col-md-6">
+            <label class="bday">Ingrese fecha inicio: </label>
+            <input type="date" id="fechaInicio" min="2018-03-27" max="2019-09-03" name="fechaHallazgo" required="required">
+            <span class="validity"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="bday">Ingrese fecha fin: </label>
+            <input type="date" id="fechaFin" min="2013-03-27" max="2019-09-03" name="fechaHallazgo" required="required">
+            <span class="validity"></span>
+        </div>
+        <div>
+            <button (click)="getProfile()">load</button>
+        </div>
+        <div *ngIf="found">
+            <span>{{name}}'s age is {{age}}</span>
+        </div>-->
+        <div>
+            <button  type="submit">Upload</button>
+        </div>
+    </form>
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of nombre;let indice=index">
+            <tr>
+
+            <td>{{nombre[indice]}}</td>
+            <td>{{age[indice]}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+          
+
+    
+</div>
+
+    

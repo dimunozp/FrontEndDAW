@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 declare let L;
-import { tileLayer, latLng, marker, Marker } from 'leaflet';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-buscar-objeto-perdido',
@@ -8,7 +9,7 @@ import { tileLayer, latLng, marker, Marker } from 'leaflet';
   styleUrls: ['./buscar-objeto-perdido.component.css']
 })
 export class BuscarObjetoPerdidoComponent implements OnInit {
-    constructor() { }
+    constructor(private httpClient:HttpClient) { }
 
     ngOnInit() {
         const map = L.map('mapid').setView([-2.146640, -79.964472], 16);
@@ -88,5 +89,7 @@ export class BuscarObjetoPerdidoComponent implements OnInit {
         }).addTo(map);
         circle9.bindPopup("FADCOM").openPopup();
     }
+
+
 
 }
