@@ -17,51 +17,7 @@ export class ReportesComponent implements OnInit {
   horaRegistro:string[] =[];
 
   constructor(private httpClient:HttpClient) { }
-/*
-  onNameKeyUp(event:any){
-    this.name = event.target.value;
-    this.found = false;
-  }
 
-  getProfile(){
-    console.log(this.name)
-    this.httpClient.get(`http://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles`)
-    .subscribe(
-      (data:any[]) => {
-
-        if(data.length) {
-          data.forEach(element => {
-            console.log(element)
-          });
-          this.age = data[0].age;
-          this.found = true;
-        }
-      }
-    )
-  }
-
-  postProfile(){
-    
-    this.httpClient.post(`http://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles/`,
-    {
-       name:"",
-       age:""
-
-    })
-    .subscribe(
-      (data:any[]) => {
- 
-        if(data.length) {
-          data.forEach(element => {
-            console.log(element)
-          });
-          this.age = data[0].age;
-          this.found = true;
-        }
-      }
-    )
-  }
-*/
   onSubmit(queryForm:NgForm):void{
     var user = queryForm.value;
     

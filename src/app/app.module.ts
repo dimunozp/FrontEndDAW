@@ -22,7 +22,7 @@ import { BuscarObjetoPerdidoComponent } from './buscar-objeto-perdido/buscar-obj
 import { Routes, RouterModule } from '@angular/router';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { RegistroComponent } from './usuario/registro/registro.component';
-import { LoginComponent } from './usuario/login/login.component';
+/*import { LoginComponent } from './usuario/login/login.component';*/
 import { Page404Component } from './page404/page404.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -31,6 +31,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 //servicios
 import { DataApiService } from './servicios/data-api.service';
 import { ReportesComponent } from './reportes/reportes.component';
+import { NewLoginComponent } from './new-login/new-login.component';
 
 
 
@@ -45,7 +46,7 @@ const rutas: Routes = [
     { path: 'perdidos', component: PerdidosComponent },
     { path: 'registrar-objeto-perdido', component: RegistrarObjetoPerdidoComponent },
     { path: 'usuario/registro', component: RegistroComponent },
-    { path: 'usuario/login', component: LoginComponent },
+    { path: 'usuario/login', component: NewLoginComponent },
     { path: 'usuario/perfil', component: PerfilComponent },
     { path: 'estadistica', component: EstadisticaComponent },
     { path: 'reportes', component: ReportesComponent },
@@ -67,11 +68,12 @@ const rutas: Routes = [
         ContactoComponent,
         BuscarObjetoPerdidoComponent,
         RegistroComponent,
-        LoginComponent,
+        /*LoginComponent,*/
         Page404Component,
         PerfilComponent,
         EstadisticaComponent,
-        ReportesComponent
+        ReportesComponent,
+        NewLoginComponent
     ],
     imports: [
         BrowserModule,
