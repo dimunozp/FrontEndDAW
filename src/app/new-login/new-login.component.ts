@@ -12,33 +12,6 @@ import { Location } from '@angular/common';
 })
 export class NewLoginComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private httpClient:HttpClient) { }
-
-
-  onSubmit(loginForm:NgForm):void{
-    var user = loginForm.value;
-    console.log(user.email);
-    console.log(user.password);
-    
-    this.httpClient.post(`http://192.168.0.24:3000/api/verificarUsuario`,{
-      correo:user.email,
-      password:user.password
-    
-    },{
-      headers: new HttpHeaders({
-        "Access-Control-Allow-Origin":"*",
-        'Content-Type': 'application/json'
-    })
-})
-    .subscribe(
-      (data:any[]) => {
-        console.log(data);
-    })
-
-    
-  }
-=======
     constructor(private httpClient: HttpClient,private router:Router,public location:Location) { }
 
 
@@ -63,8 +36,6 @@ export class NewLoginComponent implements OnInit {
                 }
             }
         );
-
->>>>>>> 3a4d5e2141550227c3041d9574c5f214f9d90d86
 
     }
 
