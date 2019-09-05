@@ -34,6 +34,8 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { NewLoginComponent } from './new-login/new-login.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
 import { MisObjetosComponent } from './mis-objetos/mis-objetos.component';
+import { UsuarioNoRegistradoComponent } from './usuario-no-registrado/usuario-no-registrado.component';
+import { SinAccesoComponent } from './sin-acceso/sin-acceso.component';
 
 
 
@@ -54,6 +56,8 @@ const rutas: Routes = [
     { path: 'estadistica', component: EstadisticaComponent },
     { path: 'reportes', component: ReportesComponent },
     { path: 'anuncios', component: AnunciosComponent },
+    { path: 'usuario-no-registrado', component: UsuarioNoRegistradoComponent  },
+    { path: 'sin-acceso', component: SinAccesoComponent   },
     { path: '**', component: Page404Component }
 
 ];
@@ -79,7 +83,9 @@ const rutas: Routes = [
         ReportesComponent,
         NewLoginComponent,
         AnunciosComponent,
-        MisObjetosComponent
+        MisObjetosComponent,
+        UsuarioNoRegistradoComponent,
+        SinAccesoComponent
     ],
     imports: [
         BrowserModule,
@@ -87,7 +93,7 @@ const rutas: Routes = [
         FormsModule,
         AppRoutingModule,
         ChartsModule,
-        
+
         RouterModule.forRoot(rutas),
         LeafletModule.forRoot()
     ],

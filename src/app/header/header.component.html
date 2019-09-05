@@ -32,7 +32,7 @@
                                 Perdidos</a></li>
                         <li class="nav-item elementoMenu" data-position="bottom"
                             data-intro="Si encontraste algún objeto colocalo justo aquí." data-step="4"><a
-                                class="seleccionables nav-link enlaceMenu"
+                                class="seleccionables nav-link enlaceMenu" (click)="alerta()"
                                 routerLink="/registrar-objeto-perdido">Agregar Objeto</a></li>
 
                         <li class="nav-item elementoMenu" data-position="bottom"
@@ -51,19 +51,19 @@
                         </li>
                         <li class="nav-item elementoMenu" data-position="bottom"
                             data-intro="Mis objetos encontrados" data-step="8">
-                            <a class="seleccionables nav-link enlaceMenu" routerLink="/mis-objetos">Mis Objetos</a>
+                            <a class="seleccionables nav-link enlaceMenu" (click)="alerta()"routerLink="/mis-objetos">Mis Objetos</a>
                         </li>
                         <li class="nav-item elementoMenu" data-position="bottom"
                             data-intro="Consulta tus reportes" data-step="9">
-                            <a class="seleccionables nav-link enlaceMenu" routerLink="/reportes">Reportes</a>
+                            <a class="seleccionables nav-link enlaceMenu" (click)="alerta()" (click)="alertaid3()"routerLink="/reportes">Reportes</a>
                         </li>
                         <li class="nav-item elementoMenu" data-position="bottom"
                             data-intro="Observa estadisticas" data-step="10">
-                            <a class="seleccionables nav-link enlaceMenu" routerLink="/estadistica">Estadisticas</a>
+                            <a class="seleccionables nav-link enlaceMenu" (click)="alerta()" (click)="alertaid3()" routerLink="/estadistica">Estadisticas</a>
                         </li>
                         <li class="nav-item elementoMenu" data-position="bottom"
                             data-intro="Mira tu perfil" data-step="11">
-                            <a class="seleccionables nav-link enlaceMenu" routerLink="/usuario/perfil">Perfil</a>
+                            <a class="seleccionables nav-link enlaceMenu" (click)="alerta()" routerLink="/usuario/perfil">Perfil</a>
                         </li>
                     </ul>
                 </div>
