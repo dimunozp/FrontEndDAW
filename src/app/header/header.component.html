@@ -8,7 +8,8 @@
                 </a></div>
         </div>
         <div class="botonesRegisto">
-            <button type="button" class="btn btn-dark btn-lg " routerLink="/usuario/login">Ingresar</button>
+            <button id="ingreso" type="button" class="btn btn-dark btn-lg " routerLink="/usuario/login">Ingresar</button>
+            <button id="salida" type="button" class="btn btn-ligth btn-lg " (click)="logOut()"routerLink="/">Salir</button>
         </div>
         <div class="mapaNavegacion" (click)=iniciarRecorrido()>
             <div class="nav-item"><button class="navGuiada button" ><span>Dar un
