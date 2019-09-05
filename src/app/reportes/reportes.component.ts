@@ -22,7 +22,7 @@ export class ReportesComponent implements OnInit {
     var user = queryForm.value;
     console.log(user.fechaHallazgo)
     
-    this.httpClient.post(`http://192.168.0.24:3000/api/objetosFecha`,{
+    this.httpClient.post(`http://192.168.0.24:3000/api/objetosFechaNosql`,{
       fecha:user.fechaHallazgo
     
   })
