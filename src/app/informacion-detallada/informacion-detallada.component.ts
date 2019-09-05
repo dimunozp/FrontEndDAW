@@ -27,18 +27,7 @@ export class InformacionDetalladaComponent implements OnInit {
     constructor(/*private dataApi: DataApiService,*/ private route:ActivatedRoute,private httpClient:HttpClient) { }
 
     ngOnInit() {
-        const map2 = L.map('mapid3').setView([-2.146640, -79.964472], 16);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        }).addTo(map2);
-
-        var circle = L.circle([-2.144463, -79.967838], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.2,
-            radius: 20
-        }).addTo(map2);;
-        circle.bindPopup("FIEC").openPopup();
+        
 
         const objeto_id = this.route.snapshot.params["id"]
         this.getDetalles(objeto_id)

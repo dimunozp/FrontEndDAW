@@ -47,6 +47,7 @@ const rutas: Routes = [
     { path: 'informacion-detallada/:id', component: InformacionDetalladaComponent },
     { path: 'perdidos', component: PerdidosComponent },
     { path: 'registrar-objeto-perdido', component: RegistrarObjetoPerdidoComponent },
+    { path: 'mis-objetos', component: MisObjetosComponent },
     { path: 'usuario/registro', component: RegistroComponent },
     { path: 'usuario/login', component: NewLoginComponent },
     { path: 'usuario/perfil', component: PerfilComponent },

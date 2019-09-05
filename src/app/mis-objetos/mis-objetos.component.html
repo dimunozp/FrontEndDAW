@@ -1,1 +1,30 @@
-<p>mis-objetos works!</p>
+<div class="about-content">
+    <div class="container">
+        <div class="product-section">
+            <div class="product-section-top">
+                <h3>Mis objetos Agregados</h3>
+                
+                <div class="specials" *ngFor="let item of titulos;let indice=index">
+                <!--*ngFor="let item of imagenes;let indice=index"-->
+                    <div class="specials-grids">
+                        <div class="col-md-4 special-grid "><!--Aqui va la directiva ngFor para iterar los resultados obtenidos *ngFor="let objeto of objetos" -->
+                            <div class="gallery">
+                            <a href="http://192.168.0.24:3000/api/imagenes?imagen={{imagenes[indice]}}"><img src="http://192.168.0.24:3000/api/imagenes?imagen={{imagenes[indice]}}" title="imagen-name" alt="Libro Matematicas"><!--{{objeto.imagen}}-->
+                                <div class="zoom-icon">
+                                        <i class="zi"></i>
+                                </div>
+                            </a>
+                            </div>
+                        <h4>{{titulos[indice]}}</h4><!--Aqui viene interpolation string {{objeto.nombe}}-->
+                        <p>{{descripciones[indice]}}</p>
+                        
+                        <!--{{objeto.descripcion}}-->
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

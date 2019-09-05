@@ -8703,30 +8703,38 @@ div.botonesRegisto {
 
 /*Estadistica*/
 div.estadistica{
-  margin:7em 0em;  
+  margin:10em 0em;  
 }
 
 /*Reportes*/
 div.reportes{
-  margin:7em 0em;  
+  margin:10em 0em;  
 }
 
 /*Login*/
 div.login{
-  margin:7em 0em;  
+  margin:10em 0em;  
 }
 
 /*Anuncios*/
 div.anuncios{
-  margin:8em 6em;
+  margin:10em 6em;
   position: relative;
   
 }
+
+div.miPerfil{
+  margin:10em 8em;
+  position: relative;
+}
+
 div.anuncio{
   border: 3px solid #4CAF50;
   padding: 5px;
     /*display: inline-block;*/
 }
+
+
 
 /*div.anuncio{
   float: left;
@@ -8990,4 +8998,50 @@ input[type=text]:placeholder {
 img.img-thumbnail{
   height: 200px;
   width: 50%;
+}
+
+
+/*Mi perfil*/
+#contenedor_principal_big{
+  overflow: hidden;
+  height: 500px;
+}
+
+#lateral_izquierdo{
+  float: left;
+  background: rgb(247, 247, 237);
+  width: 20%;
+}
+
+#div_aprobar{
+  border:none;
+}
+
+#divObjeto{
+  background: green;
+}
+
+footer{
+  background: red;
+  height: 30px;
+}
+
+#enlace{
+  color: white
+}
+
+#contenedor_principal{
+  float: left;
+  width: 80%;
+  height: 500px;
+  background:#ffffff;
+  overflow:auto;
+}
+
+#div_aprobar{
+  background: rgb(247, 247, 237);
+}
+
+input.disable:hover{
+  cursor: not-allowed;
 }
