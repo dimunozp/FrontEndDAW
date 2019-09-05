@@ -123,7 +123,7 @@ export class BuscarObjetoPerdidoComponent implements OnInit {
             console.log(facultad);
         }
     }
-
+/*
     ngAfterViewInit() {
         let circulos = document.getElementsByClassName("leaflet-interactive");
         for(let i=0;i<circulos.length;i++){
@@ -177,5 +177,5 @@ export class BuscarObjetoPerdidoComponent implements OnInit {
     }
     onClick9(){
         facultad = "fadcom";
-    }
+    }*/
 }

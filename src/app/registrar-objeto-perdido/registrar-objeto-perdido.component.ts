@@ -3,10 +3,15 @@ import $ from 'jquery';
 import { HttpClient, HttpHeaders, HttpParams,HttpRequest, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { imagenInterface } from '../models/imagen';
+import {UploadService} from "../servicios/upload.service"
+import { NgForm } from '@angular/forms';
 //import { link } from 'fs';
+
 
 declare let L;
 var elementos = document.getElementsByClassName("agregarImagen");
+let facultad = "fadcom" ;
+let imagene="agregarFoto.png"
 
 @Component({
     selector: 'app-registrar-objeto-perdido',
@@ -20,10 +25,10 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
     url_api: string = "https://api.imgbb.com/1/upload?key=dbb31a86423010cca82ddc9cacac724c";
     api_Key = "dbb31a86423010cca82ddc9cacac724c";
     private imagen: imagenInterface;
+    uploadFiles: Array<File>;
 
-    constructor(private http: HttpClient) {
 
-    }
+    constructor(private httpClient:HttpClient, private uploadService:UploadService) { }
 
     headers: HttpHeaders = new HttpHeaders()
         .set('Content-Type', 'application/x-www-form-urlencoded');
@@ -111,6 +116,61 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
 
     }
 
+    ngAfterViewInit() {
+        let circulos = document.getElementsByClassName("leaflet-interactive");
+        for(let i=0;i<circulos.length;i++){
+            let circulo = circulos[i];
+            if(circulo.getAttribute('fill')=='blue'){
+                circulo.addEventListener('click',this.onClick.bind(this));
+            }else if(circulo.getAttribute('fill')=='#f03'){
+                circulo.addEventListener('click',this.onClick2.bind(this));
+            }else if(circulo.getAttribute('fill')=='yellow'){
+                circulo.addEventListener('click',this.onClick3.bind(this));
+            }else if(circulo.getAttribute('fill')=='brown'){
+                circulo.addEventListener('click',this.onClick4.bind(this));
+            }else if(circulo.getAttribute('fill')=='green'){
+                circulo.addEventListener('click',this.onClick5.bind(this));
+            }else if(circulo.getAttribute('fill')=='purple'){
+                circulo.addEventListener('click',this.onClick6.bind(this));
+            }else if(circulo.getAttribute('fill')=='black'){
+                circulo.addEventListener('click',this.onClick7.bind(this));
+            }else if(circulo.getAttribute('fill')=='silver'){
+                circulo.addEventListener('click',this.onClick8.bind(this));
+            }else if(circulo.getAttribute('fill')=='pink'){
+                circulo.addEventListener('click',this.onClick9.bind(this));
+            }
+        }
+    }
+    onClick(event){
+        facultad = "fimcbor";
+    }
+    onClick2(event){
+        facultad = "fiec";
+    }
+
+    onClick3(){
+        facultad = "celex";
+    }
+
+    onClick4(){
+        facultad = "fcsh";
+    }
+    onClick5(){
+        facultad = "fcv";
+    }
+    onClick6(){
+        facultad = "fcnm";
+    }
+    onClick7(){
+        facultad = "fict";
+    }
+    onClick8(){
+        facultad = "fimcp";
+    }
+    onClick9(){
+        facultad = "fadcom";
+    }
+
     mouseEnter() {
         $(elementos[0]).css("border", "6px solid #7ebd26");
         var elemento = document.getElementById("agregarImagen");
@@ -124,8 +184,9 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
     }
 
     handleFileInput(file: FileList) {
+        this.onFileChange(file);
         this.fileToUpload = file.item(0);
-
+        
         var reader = new FileReader();
         reader.onload = (event: any) => {
             this.imageUrl = event.target.result;
@@ -139,7 +200,7 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
         let b:FormData =new FormData();
         b.append('key', key);
         b.append('image',url_base64);
-        this.http.request
+        
 
         /*fetch(this.url_api, {
             method: 'POST',
@@ -162,5 +223,73 @@ export class RegistrarObjetoPerdidoComponent implements OnInit {
                 }
             )
             */
+    }
+
+    onSubmit(registrarObjetoForm:NgForm):void{
+        var registro=registrarObjetoForm.value;
+        console.log(registro);
+        /*this.onUpload();*/
+        var subCat;
+        if(registro.sel2=="celulares"){
+            subCat="1";
+        }if(registro.sel2=="laptop"){
+            subCat="2";
+        }if(registro.sel2=="billetera"){
+            subCat="3";
+        }if(registro.sel2=="llaves"){
+            subCat="4";
+        }if(registro.sel2=="libros"){
+            subCat="5";
+        }if(registro.sel2=="cuadernos"){
+            subCat="6";
+        }if(registro.sel2=="tablets"){
+            subCat="7";
+        }
+
+        this.httpClient.post(`http://192.168.0.24:3000/api/objetos`,{
+            nombre:registro.titulo,
+            estadoR:"-1",
+            fechaRO:registro.fechaHallazgo,
+            descripcion:registro.descripcion,
+            color:registro.sel3,
+            horaRegistro:registro.time,
+            eliminadoO:"0",
+            calificacionEO:"-1",
+            idsubcategoria:subCat,
+            idEstudiante:localStorage.getItem("accessToken"),
+            lugar:facultad,
+            imagen:imagene
+
+        })
+        .subscribe(
+        (data:any[]) => {
+            console.log(data)     
+        })
+
+
+    }
+
+
+
+
+    onUpload(){
+        let formData= new FormData();
+        if(this.uploadFiles != undefined){
+            for ( let i=0; i <this.uploadFiles.length; i++){
+                /*imagene= this.uploadFiles[i].name;*/
+                console.log(this.uploadFiles[i])
+                formData.append("uploads[]", this.uploadFiles[i] , this.uploadFiles[i].name);
+            }
+
+            /*Call Service  */
+            console.log(formData);
+            this.uploadService.uploadFile(formData).subscribe((res)=>{
+                console.log('Response:',res);
+        });}
+
+    }
+
+    onFileChange(e){
+        this.uploadFiles = e;
     }
 }

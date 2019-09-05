@@ -8728,11 +8728,17 @@ div.miPerfil{
   position: relative;
 }
 
+div.enviarImagen{
+  margin:10em 6em;
+  position: relative;
+}
+
 div.anuncio{
   border: 3px solid #4CAF50;
   padding: 5px;
     /*display: inline-block;*/
 }
+
 
 
 

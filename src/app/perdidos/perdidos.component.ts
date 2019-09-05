@@ -48,12 +48,7 @@ export class PerdidosComponent implements OnInit {
             })                
         })
 
-        this.httpClient.post(`http://192.168.0.24:3000/prueba`,{})
-        .subscribe(
-        (data:any[]) => {
-            console.log(data)     
-        })
-
+        
 
     }
 
