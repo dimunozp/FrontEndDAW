@@ -2,11 +2,11 @@
     <div class="container">
         <div class="seccion-agregacion">
             <div class="seccion-agregacion-top">
-            
+
                 <h3>Busca lo que se te perdió: </h3>
                 <div class = "formulario-agregacion-objeto">
                     <div class = "formulario-agregacion-objeto-grid">
-                        
+
 
                         <form #buscarObjetoForm="ngForm" (ngSubmit)="onSubmit(buscarObjetoForm)">
                             <div class="col-md-6 special-grid">
@@ -55,13 +55,13 @@
                                 <div class="form-group">
                                     <label class="Referencia">Referencia: </label>
                                     <textarea class="form-control  input-sm" rows="3" name="descripcion" id="descripcion" [(ngModel)]="descripcion"
-                                    placeholder="Describe el lugar en donde lo encontraste(una referencia): color de las paredes, asientos, pasillos,etc." 
+                                    placeholder="Describe el lugar en donde lo encontraste(una referencia): color de las paredes, asientos, pasillos,etc."
                                     maxlength="240"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="Descripción">Descripción: </label>
                                     <textarea class="form-control  input-sm" rows="3" name="descripcion2" [(ngModel)]="descripcion2"
-                                    placeholder="Descríbelo lo más detallado posible. Indica marcas singulares, manchas, rotos o elementos distinguidos para poder identificarlo mejor." 
+                                    placeholder="Descríbelo lo más detallado posible. Indica marcas singulares, manchas, rotos o elementos distinguidos para poder identificarlo mejor."
                                     maxlength="240"></textarea>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
 
                         </form>
 
-                        
-                        
+
+
                         <div class="col-md-12 special-grid">
                             <div>
                                 <label class="Facultad">Facultad: </label>
@@ -81,14 +81,14 @@
                             <div>
                                 <button id="agregarObjetoB" type="submit"><span id="textoBoton">Buscar Objeto</span></button>
                             </div>
-                            
+
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
-                    
-                
+
+
             </div>
         </div>
     </div>
