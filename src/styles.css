@@ -8716,6 +8716,39 @@ div.login{
   margin:7em 0em;  
 }
 
+/*Anuncios*/
+div.anuncios{
+  margin:8em 6em;
+  position: relative;
+  
+}
+div.anuncio{
+  border: 3px solid #4CAF50;
+  padding: 5px;
+    /*display: inline-block;*/
+}
+
+/*div.anuncio{
+  float: left;
+}
+div.img-thumbnail{
+  float: left;
+}
+div.content-thumbnail{
+  float: left;
+}*/
+
+.clearfix-thumbnail {
+  overflow: auto;
+
+}
+
+.img2 {
+  height: 200px;
+  width: 30%;
+  float: left;
+}
+
 
 
 /* STRUCTURE */
@@ -8950,3 +8983,11 @@ input[type=text]:placeholder {
   width:60%;
 }
 
+
+
+/* Anuncios */
+
+img.img-thumbnail{
+  height: 200px;
+  width: 50%;
+}

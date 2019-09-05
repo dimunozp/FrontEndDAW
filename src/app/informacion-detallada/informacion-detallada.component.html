@@ -4,10 +4,10 @@
             <div class="seccion-agregacion-top">
                 <h3>Detalles del objeto encontrado: </h3>
                 <div class = "formulario-agregacion-objeto">
-                    <div class = "formulario-agregacion-objeto-grid">
+                    <div class = "formulario-agregacion-objeto-grid" >
                         <div class= "col-md-4 col-mobile-12 special-grid">
                             <div class= "imagenAgregada">
-                                <img src = "https://i.ibb.co/tZrk99b/libro.jpg" title="Agregar Imagen">
+                                <img src = "http://192.168.0.24:3000/api/imagenes?imagen={{objeto.imagen}}" title="Agregar Imagen">
                             </div>
                         </div>
                         <div class="col-md-4 special-grid">
@@ -15,19 +15,19 @@
                                   <label class="sel1">El objeto pertenece a la categoría :</label>
                                   <br>
                                   <br>
-                                  <label class="respuesta">Libro</label>
+                                  <label class="respuesta">{{objeto.categoria}}</label>
                             </div>
                             <div class="form-group">
                                   <label class="sel1">Específicamente es:</label>
                                   <br>
                                   <br>
-                                  <label class="respuesta">Libro de Matemáticas</label>
+                                  <label class="respuesta">{{objeto.nombre}}</label>
                             </div>
                             <div class="form-group">
                                   <label class="sel1">Tiene color :</label>
                                   <br>
                                   <br>
-                                  <label class="respuesta">Rosa con purpurá</label>
+                                  <label class="respuesta">{{objeto.color}}</label>
                             </div>
                         </div>
                         <div class="col-md-4 special-grid">
@@ -35,13 +35,13 @@
                                 <label class="bday">Se encontro aproximandamente el: </label>
                                    <br>
                                   <br>
-                                  <label class="respuesta">2019/06/30</label>
+                                  <label class="respuesta">{{objeto.fechaIn}}</label>
                               </div>
                               <div class="form-group">
                                 <label class="appt-time">A la hora: </label>
                                 <br>
                                   <br>
-                                  <label class="respuesta">13:45</label>
+                                  <label class="respuesta">{{objeto.horaIn}}</label>
                               </div>
                         </div>
                         <div class="col-md-12 special-grid">

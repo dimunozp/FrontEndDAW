@@ -1,0 +1,15 @@
+<div class="anuncios">
+        <h1 class="text-center">Anuncios</h1>
+        <!--*ngFor="let item of nombre;let indice=index"-->
+    <div  *ngFor="let item of imagenes;let indice=index">
+        <div class="anuncio clearfix-thumbnail">
+            <img class="img2" src="http://192.168.0.24:3000/api/imagenes?imagen={{imagenes[indice]}}"/>
+            <h1>{{titulos[indice]}}</h1>
+            <p>{{descripciones[indice]}}</p>
+        </div>
+    </div>
+    
+        
+    
+
+</div>
