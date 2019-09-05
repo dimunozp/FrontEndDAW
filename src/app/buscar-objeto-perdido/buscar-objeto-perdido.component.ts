@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class BuscarObjetoPerdidoComponent implements OnInit {
     constructor(private httpClient:HttpClient) { }
 
+    
+
     ngOnInit() {
         const map = L.map('mapid').setView([-2.146640, -79.964472], 16);
 

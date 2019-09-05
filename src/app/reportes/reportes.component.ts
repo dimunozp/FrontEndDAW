@@ -20,9 +20,10 @@ export class ReportesComponent implements OnInit {
 
   onSubmit(queryForm:NgForm):void{
     var user = queryForm.value;
+    console.log(user.fechaHallazgo)
     
     this.httpClient.post(`http://192.168.0.24:3000/api/objetosFecha`,{
-      fecha:"2019-08-16"
+      fecha:user.fechaHallazgo
     
   })
     .subscribe(
@@ -35,7 +36,7 @@ export class ReportesComponent implements OnInit {
             this.color.push(element.color);
             this.descripcion.push(element.descripcion);
             this.lugar.push(element.lugar);
-            this.fechaRegistro.push(element.fechaRO);
+            this.fechaRegistro.push(element.fechaRO.substring(0, 10));
             this.horaRegistro.push(element.horaRegistro);
                         
           });

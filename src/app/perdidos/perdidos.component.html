@@ -4,130 +4,24 @@
             <div class="product-section-top">
                 <h3>Objetos Perdidos</h3>
 
-
-                <p class="texto parrafo2">Recientes</p>
-
-
-                <div class="galeria">
-                    <div class=contenedor>
-                        <img src="../assets/celular.jpg" title="imagen1" class="imagen">
-                        <div class="overlay">
-                            <div class="text">Celular Huawei</div>
-                          </div>
-                    </div>
-                    <div class=contenedor>
-                        <img src="../assets/billetera.jpg" title="imagen1" class="imagen">
-                        <div class="overlay">
-                            <div class="text">Billetera Lacoste</div>
-                         </div>
-                    </div>
-
-                    <div class=contenedor>
-                        <img src="../assets/llaves.jpg" title="imagen1" class="imagen">
-                        <div class="overlay">
-                            <div class="text">Llaves</div>
-                        </div>
-                    </div>
-
-                    <div class=contenedor>
-                        <img src="../assets/libro.jpg" title="imagen1" class="imagen">
-                        <div class="overlay">
-                            <div class="text">Libro Poesía</div>
-                        </div>
-                    </div>
-
-                    <div class=contenedor>
-                        <img src="../assets/gafas.jpg" title="imagen1" class="imagen">
-                        <div class="overlay">
-                            <div class="text">Gafas</div>
-                          </div>
-                    </div>
-
-                    <div class=contenedor>
-                        <img src="../assets/tarjeta.jpg" title="imagen1" class="imagen">
-                        <div class="overlay">
-                            <div class="text">Tarjeta Sabadell</div>
-                          </div>
-                    </div>
-                </div>
-
                 <p class="texto parrafo2">Todos los objetos</p>
-                   <div class="specials">
+                <div class="specials" *ngFor="let item of titulos;let indice=index">
+                <!--*ngFor="let item of imagenes;let indice=index"-->
                     <div class="specials-grids">
                         <div class="col-md-4 special-grid "><!--Aqui va la directiva ngFor para iterar los resultados obtenidos *ngFor="let objeto of objetos" -->
-                          <div class="gallery">
-                            <a href="../assets/libro.jpg"><img src="../assets/libro.jpg" title="imagen-name" alt="Libro Matematicas"><!--{{objeto.imagen}}-->
+                            <div class="gallery">
+                            <a href="http://192.168.0.24:3000/api/imagenes?imagen={{imagenes[indice]}}"><img src="http://192.168.0.24:3000/api/imagenes?imagen={{imagenes[indice]}}" title="imagen-name" alt="Libro Matematicas"><!--{{objeto.imagen}}-->
                                 <div class="zoom-icon">
-                                      <i class="zi"></i>
+                                        <i class="zi"></i>
                                 </div>
                             </a>
-                          </div>
-                            <h4>Libro Matematicas</h4><!--Aqui viene interpolation string {{objeto.nombe}}-->
-                            <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <!--{{objeto.descripcion}}-->
-                            <a class="btn btn-1 btn-1c more" routerLink="/informacion-detallada/id">Detalles</a><!--routerLing ="/informacionDetallada/{{objeto.id}}"-->
-                        </div>
-                        <div class="col-md-4 special-grid">
-                              <div class="gallery">
-                                <a href="../assets/billetera.jpg"><img src="../assets/billetera.jpg" title="image-name">
-                                <div class="zoom-icon">
-                                    <i class="zi"></i>
-                                </div>
-                                </a>
-                              </div>
-                            <h4>Billetera Lacoste</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <a class="btn btn-1 btn-1c more" href="#">Detalles</a>
-                        </div>
-                        <div class="col-md-4 special-grid">
-                          <div class="gallery">
-                             <a href="../assets/libro.jpg"><img src="../assets/libro.jpg" title="image-name">
-                             <div class="zoom-icon">
-                              <i class="zi"></i>
-                             </div>
-                             </a>
-                          </div>
-                            <h4>Libro Desarrollo Web</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <a class="btn btn-1 btn-1c more" href="#">Detalles</a>
-                        </div>
-                        <div class="col-md-4 special-grid">
-                          <div class="gallery">
-                             <a href="../assets/libro.jpg"><img src="../assets/libro.jpg" title="image-name">
-                             <div class="zoom-icon">
-                              <i class="zi"></i>
-                             </div>
-                             </a>
-                          </div>
-                            <h4>Libro Poesía</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <a class="btn btn-1 btn-1c more" href="#">Detalles</a>
-                        </div>
-                        <div class="col-md-4 special-grid">
-                          <div class="gallery">
-                             <a href="../assets/gafas.jpg"><img src="../assets/gafas.jpg" title="image-name">
-                             <div class="zoom-icon">
-                              <i class="zi"></i>
-                             </div>
-                             </a>
-                          </div>
-                            <h4>Gafas</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <a class="btn btn-1 btn-1c more" href="#">Detalles</a>
-                        </div>
-                        <div class="col-md-4 special-grid">
-                          <div class="gallery">
-                             <a href="../assets/tarjeta.jpg"><img src="../assets/tarjeta.jpg" title="image-name">
-                             <div class="zoom-icon">
-                              <i class="zi"></i>
-                             </div>
-                             </a>
-                          </div>
-                            <h4>Tarjeta Sabadell</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
-                            <a class="btn btn-1 btn-1c more" href="#">Detalles</a>
-                        </div>
-                        <div class="clearfix"> </div>
+                            </div>
+                        <h4>{{titulos[indice]}}</h4><!--Aqui viene interpolation string {{objeto.nombe}}-->
+                        <p>{{descripciones[indice]}}</p>
+                        <!--{{objeto.descripcion}}-->
+                        <a class="btn btn-1 btn-1c more" routerLink="/informacion-detallada/{{ids[indice]}}">Detalles</a><!--routerLink ="/informacionDetallada/{{objeto.id}}"-->
+                        
+                    </div>
                 </div>
             </div>
         </div>

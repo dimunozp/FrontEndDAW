@@ -32,6 +32,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataApiService } from './servicios/data-api.service';
 import { ReportesComponent } from './reportes/reportes.component';
 import { NewLoginComponent } from './new-login/new-login.component';
+import { AnunciosComponent } from './anuncios/anuncios.component';
 
 
 
@@ -50,6 +51,7 @@ const rutas: Routes = [
     { path: 'usuario/perfil', component: PerfilComponent },
     { path: 'estadistica', component: EstadisticaComponent },
     { path: 'reportes', component: ReportesComponent },
+    { path: 'anuncios', component: AnunciosComponent },
     { path: '**', component: Page404Component }
 
 ];
@@ -73,7 +75,8 @@ const rutas: Routes = [
         PerfilComponent,
         EstadisticaComponent,
         ReportesComponent,
-        NewLoginComponent
+        NewLoginComponent,
+        AnunciosComponent
     ],
     imports: [
         BrowserModule,

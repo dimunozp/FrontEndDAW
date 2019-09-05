@@ -12,38 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EstadisticaComponent implements OnInit{
   
-/*
 
-  //Gráfico de líneas
-  onSubmit(queryForm:NgForm):void{
-    var user = queryForm.value;
-    
-    this.httpClient.post(`http://192.168.0.24:3000/api/objetosFecha`,{
-      fecha:"2019-08-16"
-    
-  })
-    .subscribe(
-      (data:any[]) => {
-        
-        console.log(data);
-        if(data.length) {
-          data.forEach(element => {
-            this.nombre.push(element.nombre);
-            this.color.push(element.color);
-            this.descripcion.push(element.descripcion);
-            this.lugar.push(element.lugar);
-            this.fechaRegistro.push(element.fechaRO);
-            this.horaRegistro.push(element.horaRegistro);
-                        
-          });
-        }
-        
-        
-        
-
-  })
-}
-*/
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
   }

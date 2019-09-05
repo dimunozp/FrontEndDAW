@@ -13,17 +13,18 @@ export class ContactoComponent implements OnInit {
 
   onSubmit(contactoForm:NgForm):void{
     var contacto = contactoForm.value;
+    console.log(contacto);
     console.log(contacto.correo);
     console.log(contacto.asunto);
-    console.log(contacto.correo);
+   
     this.httpClient.post(`http://192.168.0.24:3000/api/enviar`,{
       correo:contacto.correo,
       asunto:contacto.asunto,
-      texto:contacto.mensaje
+      texto: contacto.correo+"\n"+contacto.mensaje
     
   })
     .subscribe(
-      (data:any[]) => {        
+      (data:any[]) => {
         console.log(data)              
 
   })
