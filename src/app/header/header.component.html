@@ -8,8 +8,7 @@
                 </a></div>
         </div>
         <div class="botonesRegisto">
-            <button type="button" class="btn btn-dark btn-lg " routerLink="/usuario/registro">Registrar</button>
-            <button type="button" class="btn btn-light btn-lg " routerLink="/usuario/login">Ingresar</button>
+            <button type="button" class="btn btn-dark btn-lg " routerLink="/usuario/login">Ingresar</button>
         </div>
         <div class="mapaNavegacion" (click)=iniciarRecorrido()>
             <div class="nav-item"><button class="navGuiada button" ><span>Dar un
@@ -19,13 +18,6 @@
 
         <div class="navigation">
             <div class="navigation-bar">
-                <div class="search2">
-                    <form>
-                        <input type="text" value="Search.." onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Search..';}" />
-                        <input type="submit" value="">
-                    </form>
-                </div>
                 <span class="menu"></span>
                 <div class="top-menu">
                     <ul class="menuPrincipal">
@@ -43,7 +35,7 @@
                                 routerLink="/registrar-objeto-perdido">Agregar Objeto</a></li>
 
                         <li class="nav-item elementoMenu" data-position="bottom"
-                            data-intro="Ponte en contacto con nosotros." data-ste="5"><a
+                            data-intro="Ponte en contacto con nosotros." data-step="5"><a
                                 class="seleccionables nav-link enlaceMenu" routerLink="/contacto">Contactanos</a></li>
                         <li class="nav-item elementoMenu" data-position="bottom"
                             data-intro="Conoce un poco de nuestro trabajo, nuestros objetivos y trabajos futuros que planiemos realizar."
@@ -55,6 +47,22 @@
                                 <li class="elementoMenu"><a class="seleccionables enlaceMenu" routerLink="/detalles">Que
                                         hacemos </a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item elementoMenu" data-position="bottom"
+                            data-intro="Mis objetos encontrados" data-step="8">
+                            <a class="seleccionables nav-link enlaceMenu" routerLink="/">Mis Objetos</a>
+                        </li>
+                        <li class="nav-item elementoMenu" data-position="bottom"
+                            data-intro="Consulta tus reportes" data-step="9">
+                            <a class="seleccionables nav-link enlaceMenu" routerLink="/reportes">Reportes</a>
+                        </li>
+                        <li class="nav-item elementoMenu" data-position="bottom"
+                            data-intro="Observa estadisticas" data-step="10">
+                            <a class="seleccionables nav-link enlaceMenu" routerLink="/estadistica">Estadisticas</a>
+                        </li>
+                        <li class="nav-item elementoMenu" data-position="bottom"
+                            data-intro="Mira tu perfil" data-step="11">
+                            <a class="seleccionables nav-link enlaceMenu" routerLink="/usuario/perfil">Perfil</a>
                         </li>
                     </ul>
                 </div>
