@@ -33,6 +33,7 @@ import { DataApiService } from './servicios/data-api.service';
 import { ReportesComponent } from './reportes/reportes.component';
 import { NewLoginComponent } from './new-login/new-login.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
+import { MisObjetosComponent } from './mis-objetos/mis-objetos.component';
 
 
 
@@ -76,7 +77,8 @@ const rutas: Routes = [
         EstadisticaComponent,
         ReportesComponent,
         NewLoginComponent,
-        AnunciosComponent
+        AnunciosComponent,
+        MisObjetosComponent
     ],
     imports: [
         BrowserModule,

@@ -1,6 +1,7 @@
 <div class="about-content">
     <div class="container">
         <div class="seccion-agregacion">
+            <form #registrarObjetoForm="ngForm" (ngSubmit)="onSubmit(registrarObjetoForm)">
             <div class="seccion-agregacion-top">
                 <h3>Agrega el objeto encontrado: </h3>
                 <div class = "formulario-agregacion-objeto">
@@ -14,7 +15,7 @@
                         <div class="col-md-4 special-grid">
                             <div class="form-group">
                                   <label for="sel1">¿Qué es? :</label>
-                                  <select class="form-control" id="sel1" >
+                                  <select class="form-control" id="sel1" name="sel1" [ngModel]="sel1">
                                     <option>Seleccione la categoría del objeto que encontraste</option>
                                     <option>Tecnología</option>
                                     <option>Ropa</option>
@@ -23,7 +24,7 @@
                             </div>
                             <div class="form-group">
                                   <label for="sel1">¡Vamos! Dame más detalles :</label>
-                                  <select class="form-control" id="sel2" >
+                                  <select class="form-control" id="sel2" name="sel2" [ngModel]="sel2">
                                     <option>Seleccione la subcategoría del objeto que encontraste</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -32,7 +33,7 @@
                             </div>
                             <div class="form-group">
                                   <label for="sel1">¡Entiendo! ¿Qué color tiene?:</label>
-                                  <select class="form-control" id="sel3" >
+                                  <select class="form-control" id="sel3" name="sel3" [ngModel]="sel3">
                                     <option>Seleccione el color del objeto encontrado</option>
                                     <option>Rojo</option>
                                     <option>Negro</option>
@@ -76,6 +77,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </div>
