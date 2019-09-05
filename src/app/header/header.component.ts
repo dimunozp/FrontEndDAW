@@ -36,8 +36,7 @@ export class HeaderComponent implements OnInit {
                             let nombre = data[0].nombreUsuario;
                             boton.innerText = nombre;
                             botons.style.setProperty('display', 'inline');
-                            this.route.navigateByUrl('/usuario/perfil', { skipLocationChange: true })
-                                .then(() => { this.route.navigate([decodeURI(this.location.path())]) });
+
                         }
                     })
 
@@ -56,4 +55,25 @@ export class HeaderComponent implements OnInit {
 
     }
 
+    alerta() {
+        if (localStorage.length == 0) {
+            this.route.navigate(['/usuario-no-registrado']);
+        }
+    }
+
+    alertaid3() {
+        this.httpClient.get(`http://192.168.0.24:3000/api/usuarios/${localStorage.getItem('accessToken')}`)
+            .subscribe(
+                (data: any) => {
+                    if (data.length == 0) {
+                        console.log("No exite el usuario");
+                    } else {
+                        let id = data[0].idRolUsuario;
+                        if (id == "3") {
+                            this.route.navigate(['/sin-acceso']);
+                        }
+
+                    }
+            })
+    }
 }

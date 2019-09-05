@@ -34,9 +34,14 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { NewLoginComponent } from './new-login/new-login.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
 import { MisObjetosComponent } from './mis-objetos/mis-objetos.component';
+
 import{ UploadService} from "./servicios/upload.service";
 import { PruebaImagenComponent } from './prueba-imagen/prueba-imagen.component'
 import { ImageUploadModule } from 'angular2-image-upload';
+
+import { UsuarioNoRegistradoComponent } from './usuario-no-registrado/usuario-no-registrado.component';
+import { SinAccesoComponent } from './sin-acceso/sin-acceso.component';
+
 
 
 
@@ -57,7 +62,12 @@ const rutas: Routes = [
     { path: 'estadistica', component: EstadisticaComponent },
     { path: 'reportes', component: ReportesComponent },
     { path: 'anuncios', component: AnunciosComponent },
+
     { path: 'prueba', component: PruebaImagenComponent },
+
+    { path: 'usuario-no-registrado', component: UsuarioNoRegistradoComponent  },
+    { path: 'sin-acceso', component: SinAccesoComponent   },
+
     { path: '**', component: Page404Component }
 
 ];
@@ -84,7 +94,10 @@ const rutas: Routes = [
         NewLoginComponent,
         AnunciosComponent,
         MisObjetosComponent,
-        PruebaImagenComponent
+        PruebaImagenComponent,
+        UsuarioNoRegistradoComponent,
+        SinAccesoComponent
+
     ],
     imports: [
         BrowserModule,
@@ -92,7 +105,9 @@ const rutas: Routes = [
         FormsModule,
         AppRoutingModule,
         ChartsModule,
+
         ImageUploadModule.forRoot(),
+
         RouterModule.forRoot(rutas),
         LeafletModule.forRoot()
     ],
