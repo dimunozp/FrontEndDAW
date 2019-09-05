@@ -37,7 +37,6 @@ import { MisObjetosComponent } from './mis-objetos/mis-objetos.component';
 
 import{ UploadService} from "./servicios/upload.service";
 import { PruebaImagenComponent } from './prueba-imagen/prueba-imagen.component'
-import { ImageUploadModule } from 'angular2-image-upload';
 
 import { UsuarioNoRegistradoComponent } from './usuario-no-registrado/usuario-no-registrado.component';
 import { SinAccesoComponent } from './sin-acceso/sin-acceso.component';
@@ -105,8 +104,6 @@ const rutas: Routes = [
         FormsModule,
         AppRoutingModule,
         ChartsModule,
-
-        ImageUploadModule.forRoot(),
 
         RouterModule.forRoot(rutas),
         LeafletModule.forRoot()
